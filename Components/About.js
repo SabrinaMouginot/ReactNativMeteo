@@ -1,7 +1,7 @@
 /*Je créer un fichier pour tester ce que je viens d'apprendre. */
-import React from "react"; /*on importe react pour créer des composants. */
-import { StyleSheet, Text, View, ActivityIndicator, Image, Button} from "react-native";
-
+import React from 'react'; /*on importe react pour créer des composants. */
+import { StyleSheet, Text, View, ActivityIndicator, Image, Button} from 'react-native';
+import style from '../Style';
 
 /**On créer toujours une class correspondant à notre composant */
 export default class About extends React.Component {
@@ -18,7 +18,7 @@ export default class About extends React.Component {
   }
 
   search() {
-    console.log(this.props.navigation)
+    this.props.navigation.navigate('Search')
   }
 
   render() {
@@ -30,7 +30,7 @@ export default class About extends React.Component {
           <Text>
             Lorem ipsum dolor sit amet, consectetur
           </Text>
-          <Button onPress={() => this.search} title ="Rechercher"/>
+          <Button onPress={() => this.search} title ="Rechercher une ville"/>
           {/* style.view fait référence au style de const style */}
           {/* style.title fait référence au style de const style. */}
           {/* ActivityIndicator permet de mettre un indicateur. si j'en utilise plusieurs, ils vont s'emplier  */}

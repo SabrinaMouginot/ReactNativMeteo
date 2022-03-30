@@ -1,5 +1,7 @@
 import React from "react"; /*on importe react pour créer des composants. */
-import { View, Image } from "react-native"; /* on créer les différents composants dont on a besoin */
+import style from '../Style';
+import { TextInput, Image, Button, View } from "react-native"; /* on créer les différents composants dont on a besoin */
+
 
 export default class Home extends React.Component {
 
@@ -17,26 +19,30 @@ export default class Home extends React.Component {
     };
   }
 
-  setCity(city) {
-    this.setState({ city });
-}
+  setCity (city) {
+    this.setState({ city })
+  }
 
-  render() {
+  render () {
     return (
       //dans le vitual DOM, on utilise le TextIput qui va nous permettre de faire un champ
       //Pour StackNavigator, TabNavigator et DrawerNavigator, j'ai fait "yarn add react-navigation" dans le terminal
       //StackNavigator
       // TabNavigator permet de lire les composants créer
       // DrawerNavigator, pour sortir un panneau de la gauche de l'écran (pratique pour les sous-menus)
-      <View style={{ marginVertical: 40 }}>
-        {/* <search /> */}
+      <View>
+
         <TextInput
-          underlinecolorAndroid="tansparent" //suporter seulement par androïd
-          onChangeText={(text) => this.setCity(text)} // Le onChangeText met à jour le state du composant à chaque fois que le texte change
+          underlineColorAndroid='tansparent' //suporter seulement par androïd
+          onChangeText={(text) => this.setCity(text)}
+          // Le onChangeText met à jour le state du composant à chaque fois que le texte change
           //je n'écris pas juste onChangeText = this.setCity(text)} pcq je veux que le setCity fasse bien référence à l'objet
-          style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
+          style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
           value={this.state.city}
         />
+        <Button style={style.button} onPress={() => this.submit} title="Rechercher"/>
+        {/* Je peux utiliser ce style.button partout où je le souhaite */}
+
       </View>
     );
   }
